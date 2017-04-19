@@ -1,0 +1,53 @@
+#wrapper{
+	width: 25%;
+	margin: auto;
+	padding: 20px;
+	background: #333;
+	border: 2px solid #503274;
+	border-radius: 12px;
+	background-color: #fff;
+	padding-bottom: 10px;
+	-webkit-box-shadow:3px 0px 10px 0px black;
+	-moz-box-shadow:3px 0px 10px 0px black;
+	box-shadow:3px 0px 10px 0px black;
+}
+form{
+	width: 50%;
+	margin: 100px auto;
+}
+form div{
+	margin: 3px auto;
+}
+.textInput{
+	margin-top: 2px;
+	height: 28px;
+	padding: 1px;
+	width: 100%;
+	background-color: #333;
+	border: none;
+	border-radius: 2px;
+	text-align: left;
+	color: #fff;
+}
+.btn{
+	font-size: 16px;
+	padding: 7px;
+	width: 100%;
+	background: #333
+	text: white;
+	list-style-type: none;
+}
+.val_error{
+	color: #FF1F1F;
+}
+body {
+    background-image: url("img/beat_space.jpg");  
+}
+*{
+	text-align: center;
+	padding: 3px;
+}
+h1{
+	font-family: sans-serif;
+	color: #503274;
+}

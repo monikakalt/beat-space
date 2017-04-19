@@ -1,0 +1,24 @@
+<div class="banner col-sm-6"><img src="app-content/images/banner.png" alt="Banner"><h2>Hot beats</h2></div>
+<ul class="breadcrumb col-sm-6 pull-right">
+    <li><a href="../ang/#!/genre">Genres</a></li>
+    <li><a href="../ang/#!/artist">Artists</a></li>
+    <li><a href="../ang/#!/album">Albums</a></li>
+    <li>Songs</li>
+</ul>
+<div>
+    <ul class="main-display">
+        <li class="song item col-md-3 col-sm-6" ng-repeat="song in vm.allSongs" >
+            <div class="song ">
+                <a href="" ng-click="currentSong(song.Url, song._id)" onclick="document.getElementById('bottom_player').style = 'display: block;';toggleVideo('show');"> 
+                    <div class="item-image">
+                        <img class="img-responsive" ng-src="{{ song.ThumbNail }}" > 
+                        <div class="image-overlay">
+                            <div class="text">Play: {{song.ArtistName}} - {{song.Name}}</div>
+                        </div>
+                        <span class="item-name">{{song.ArtistName}} - {{song.Name}}</span>
+                    </div>
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>

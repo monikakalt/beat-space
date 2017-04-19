@@ -1,0 +1,17 @@
+#login {
+	background-color: white;
+	margin-top: 50px;
+	border-radius: 10px;
+	padding: 10px;
+	@include shadow_out();
+	button {
+		background-color: $medium;
+		border-color: $medium;
+		letter-spacing: 1px;
+		font-weight: 600;
+	}
+	a {
+		color: $medium;
+		font-weight: 600;
+	}
+}

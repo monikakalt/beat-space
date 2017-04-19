@@ -1,0 +1,50 @@
+#navbar {
+  padding: 5px;
+  background-color: #fff;
+  border: none;
+  margin-bottom: 10px;
+  height: 85px;
+}
+
+.navbar-nav {
+  margin-top: 10px;
+  width: 80%;
+  text-align: center;
+  li {
+    float: none;
+    display: inline-block;
+    a {
+      &:hover {
+        color: #000000;
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+
+.logo {
+  height: 75px;
+}
+
+.login {
+  height: 75px;
+}
+
+.icons {
+  height: 20px;
+}
+
+i.fa.fa-sign-out.logout {
+  font-size: 25px;
+  color: #00b9eb;
+  margin-top: 25px;
+}
+
+div#hello-user {
+  margin-top: 27px;
+  padding-right: 10px;
+}

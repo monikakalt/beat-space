@@ -1,0 +1,63 @@
+<div ng-controller="SearchController" ng-app id="Search">
+    <form name="form" ng-submit="vm.search()" role="form">
+        <div class="form-group col-md-6 col-md-offset-3"  ng-class="{ 'has-error': form.Keyword.$dirty && form.Keyword.$error.required }">
+            <label for="Keyword">Search</label>
+            <input type="text" name="Keyword" id="Keyword" class="form-control" ng-model="vm.Keyword" placeholder="Enter artist, album or song title" required />
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary hidden">Search</button>
+        </div>
+
+        <div ng-controller="ArtistController">
+            <ul class="main-display">
+                <li class="item not-songs artist col-md-4" ng-repeat="artist in vm.Artists">
+                    <a href="" ng-click="loadAlbums(artist._id)">
+                        <div class="item-image">
+                            <img class="img-responsive" ng-src="{{ artist.ThumbNail }}" >
+                            <div class="image-overlay">
+                                <div class="text">View all "{{artist.Name}}" albums</div>
+                            </div>
+                            <span class="item-name"> {{artist.Name}}</span>
+                        </div>              
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div ng-controller="AlbumController">
+            <ul class="main-display">
+                <li class="item not-songs album col-md-4" ng-repeat="album in vm.Albums">
+                        <a ng-click="loadSongs(album._id)">
+                            <div class="item-image">
+                                <img class="img-responsive" ng-src="{{ album.ThumbNail }}" >
+                                <div class="image-overlay">
+                                    <div class="text">View all "{{album.Name}}" album songs</div>
+                                </div>
+                                <span class="item-name"> {{album.Name}}</span>
+                            </div>              
+                        </a>
+                    </li>
+            </ul>
+        </div>
+
+        <div>
+            <ul class="main-display">
+                <li class="song item col-md-3 col-sm-6" ng-repeat="song in vm.Songs" >
+                    <div class="song ">
+                        <a href="" ng-click="currentSong(song.Url, song._id)" onclick="document.getElementById('bottom_player').style = 'display: block;';toggleVideo('show');"> 
+                            <div class="item-image">
+                                <img class="img-responsive" ng-src="{{ song.ThumbNail }}" > 
+                                <div class="image-overlay">
+                                    <div class="text">Play: {{song.ArtistName}} - {{song.Name}}</div>
+                                </div>
+                                <span class="item-name">{{song.ArtistName}} - {{song.Name}}</span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </dvi>
+    </form>
+</div>

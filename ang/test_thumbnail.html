@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<body>
+
+<iframe width="420" height="315" src="https://www.youtube.com/embed/_oI8LVluNvU" frameborder="0" allowfullscreen></iframe>
+
+<div>Click the thumbnail</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	
+	var iframe           = $('iframe:first');
+    var iframe_src       = iframe.attr('src');
+    var youtube_video_id = iframe_src.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/).pop();
+    
+    if (youtube_video_id.length == 11) {
+        var video_thumbnail = $('<img src="//img.youtube.com/vi/'+youtube_video_id+'/0.jpg">');
+        $('body').append(video_thumbnail);
+    
+        $('img:first').click(function() {
+            $('iframe:first').fadeToggle('400');
+        });
+    }
+
+</script>

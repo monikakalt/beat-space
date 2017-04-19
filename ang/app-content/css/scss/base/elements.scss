@@ -1,0 +1,36 @@
+body { 
+  background: url(/music-sp/ang/app-content/images/space.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: $main_font;
+  letter-spacing: 1px;
+  font-weight: 500;
+  a{
+  	font-weight: 500;
+  }
+}
+
+a {
+    color: #000000;
+    &:hover {
+    color: #000000;
+    text-decoration: none;
+  }
+}
+
+h3.playlist-name, h2.playlist {
+  color: white;
+}
+
+.add-song-image {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.breadcrumb {
+  display: inline-block;
+  border-radius: 0px;
+  width: auto;
+}

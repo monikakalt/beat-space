@@ -1,0 +1,22 @@
+<h2 class="playlist">My playlists:</h2>
+
+
+
+<!-- Kiekvieną playlist atskirai  (galbūt sliderius padaryt) -->
+
+<ul class="main-display">
+	<li ng-repeat="playlist in vm.OutsideLists">
+		<h3 class="playlist-name col-xs-12">{{playlist.Name}}</h3>
+	    <div class="item genre col-md-3 col-sm-6" ng-repeat="song in playlist.Songs track by $index">
+		    <a href="" ng-click="currentSong(song.Url, song._id, playlist.Name)" onclick="document.getElementById('bottom_player').style = 'display: block;';toggleVideo('show');">
+		    	<div class="item-image">
+			        <img height="100" width="120" ng-src="{{ song.ThumbNail }}" >
+			        <div class="image-overlay">
+						<div class="text">Play: {{song.Name}}</div>
+					</div>
+			        <span class="item-name">{{song.Name}}</span>
+		        </div>
+		    </a>
+	    </div>
+	  </li>
+  </ul>

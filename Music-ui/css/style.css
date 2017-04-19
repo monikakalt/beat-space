@@ -1,0 +1,150 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+#sidebar.affix-top {
+    position: static;
+    width: 20%;
+}
+
+#sidebar.affix {
+    position: fixed;
+    width: 20%;
+}
+
+.no-padding {
+    padding: 0px;
+}
+
+.height-100-proc {
+    height: 100%;
+}
+
+.width-20-proc {
+    width: 20%;
+}
+
+.width-80-proc {
+    width: 80%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.centered-image {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rounded-img {
+    border-radius: 100px;
+    height: 180px;
+    width: 180px;
+}
+
+.padding-top-md {
+    padding-top: 50px;
+}
+
+.padding-top-sm {
+    padding-top: 25px;
+}
+
+.padding-top-extra-sm {
+    padding-top: 10px;
+}
+
+.d-block {
+    display: block;
+}
+
+#popupVid {
+	position:absolute;
+	right:0px;
+	bottom:0px;
+	width:500px;
+	background-color:#D05F27;
+	height:auto;
+	z-index:200;
+}
+
+#content {
+    background-image: url(img/beat_space.jpg);
+    margin: 0px;
+    color: #ffffff;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    padding: 25px;
+}
+
+#playButton {
+	display: none
+}
+
+#sidebar-bg {
+    height: 100%;
+    padding: 0px 15px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#873baa+0,503274+100 */
+    background: #873baa; /* Old browsers */
+    background: -moz-linear-gradient(top, #873baa 0%, #503274 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #873baa 0%,#503274 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #873baa 0%,#503274 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#873baa', endColorstr='#503274',GradientType=0 ); /* IE6-9 */ 
+}
+
+.logo {
+    padding: 25px 0px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    background: none;
+    color: #ffffff;
+    padding-left: 40px;
+}
+
+.nav>li>a {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+a {
+    color: #ffffff;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+ul.nav {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.nav-icon {
+    height: 25px;
+    width: 25px;
+}
+
+.display-inline {
+    display: inline;
+}
+
+h2.play-list-title > a {
+    padding: 10px;
+    display: inline-block;
+    background: #733896;
+}
+
+

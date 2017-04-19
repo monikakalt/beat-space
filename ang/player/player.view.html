@@ -1,0 +1,97 @@
+<div id="GlobalPlayer" ng-controller="PlayerController">
+    
+
+    <div id="playing-music"> 
+        <iframe id="player" width="200" height="150" ng-src="{{globals.Player.Url}}" frameborder="0" allowfullscreen></iframe>
+
+    </div>
+    <a id="NextSongTrigger" href="" ng-click="nextSong()" style="display: none;"></a>
+    <div id="bottom_player">
+        <div id="buttons" class="container">           
+        <div class="float-right">
+                <a id="fa fa-random" href="javascript:;" ng-click="randomise()"><i class="fa fa-random" aria-hidden="true"></i></a>
+                <a id="fullExpandButton" href="javascript:;" onClick="toggleVideoExpand('full-width');maxWindow()"><i class="fa fa-arrows-alt" aria-hidden="true"></i></a>
+                <a id="fullCompressButton" href="javascript:;" onClick="toggleVideoExpand('compress-full-width');cancelFullScreen()"><i class="fa fa-arrows-alt" aria-hidden="true"></i></a>
+                <a id="expandButton" href="javascript:;" onClick="toggleVideoExpand('show');"><i class="fa fa-expand" aria-hidden="true"></i></a>
+                <a id="compressButton" href="javascript:;" onClick="toggleVideoExpand('hide');cancelFullScreen()"><i class="fa fa-compress" aria-hidden="true"></i></a>
+            </div>
+            <div class="text-left">
+                <div id="add-to-playlist">
+                    <a id="AddButton" href="javascript:;" ng-click="showAllPlayLists()" onclick="showPlayLists();">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </a>
+                    <select ng-model="selectedList" 
+                        ng-options="item._id as item.Name for item in options"
+                        ng-change="addToPlaylist()"
+                        id="select-add-to-playlist">
+
+                        <option value="" disabled="">Select Playlist</option>
+                    </select>
+                
+                </div>
+                <a id="fa fa-step-backward" href="javascript:;" ng-click="passedSong()" onclick="onYouTubePlayerAPIReady();"><i class="fa fa-step-backward" aria-hidden="true"></i></a>
+                <a id="pauseButton" href="javascript:;" onClick="toggleVideo('hide');"><i class="fa fa-pause" aria-hidden="true"></i></a>
+                <a id="playButton" href="javascript:;" onClick="toggleVideo('show');"><i class="fa fa-play" aria-hidden="true"></i></a>
+                <a id="repeatButton" href="javascript:;" style="display: none;" ng-click="repeat()"><i class="fa fa-repeat" aria-hidden="true"></i></a>
+                <a id="fa fa-step-forward" href="javascript:;" ng-click="nextSong()" onclick="onYouTubePlayerAPIReady();"><i class="fa fa-step-forward" aria-hidden="true"></i></a>
+
+                <div id="time">
+                    <span id="current-time">0:00</span>
+                    <input type="range" id="progress-bar" value="0">
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+        </div>    
+    </div>    
+</div>
+
+<div id="ytplayer"></div>
+<script type="text/javascript">
+    
+    $(document).keyup(function(e) {
+        if (e.keyCode == 27) { // escape key maps to keycode `27`
+            debugger;
+            toggleVideoExpand('compress-full-width')
+        cancelFullScreen();
+        }
+    });
+
+    function maxWindow() {
+       
+        if ((document.fullScreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+            if (document.documentElement.requestFullScreen) {  
+                document.documentElement.requestFullScreen();  
+            } 
+            else if (document.documentElement.mozRequestFullScreen) {  
+                document.documentElement.mozRequestFullScreen();  
+            } 
+            else if (document.documentElement.webkitRequestFullScreen) {  
+                document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+            }  
+        } 
+    }
+
+    function cancelFullScreen() {
+        debugger;
+        var isInFullScreen = (document.fullScreenElement && document.fullScreenElement !== null) ||  (document.mozFullScreen || document.webkitIsFullScreen);
+       // var isInFullScreen = true;
+        if (isInFullScreen) {
+            var requestMethod = document.cancelFullScreen||document.webkitCancelFullScreen||document.mozCancelFullScreen||document.exitFullscreen;
+            if (requestMethod) { // cancel full screen.
+                requestMethod.call(document);
+            } 
+            else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+                var wscript = new ActiveXObject("WScript.Shell");
+                if (wscript !== null) {
+                    wscript.SendKeys("{F11}");
+                }
+            }
+        }
+    }
+
+    function showPlayLists() {
+        
+        $( "#GlobalPlayer #add-to-playlist #select-add-to-playlist" ).click();
+    }
+</script>
+

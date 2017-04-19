@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){  
+        var song = "SongName";
+        var artist = "ArtistName";
+        var album = "AlbumName";
+        var url = "https://www.youtube.com/watch?v=feA64wXhbjo";
+
+        var JSONObject= {
+             "Name":song,
+             "Artist":artist,
+             "Album":album,
+             "Url":url
+             };
+
+        $.ajax({  
+            url:'http://localhost:64200/songs',  
+            type:'post',
+            data :  JSONObject,      
+            dataType: 'JSON',
+        });  
+});     
+</script>
+</script>

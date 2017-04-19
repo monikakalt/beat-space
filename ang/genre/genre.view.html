@@ -1,0 +1,28 @@
+<div class="banner col-sm-6"><img src="app-content/images/banner.png" alt="Banner"><h2>All genres</h2></div>
+<ul class="breadcrumb col-sm-6 pull-right">
+    <li>Genres</li>
+</ul>
+<div id="genres" ng-controller="GenreController">
+	<ul class="main-display">
+		<li class="item not-songs genre col-md-4" ng-repeat="genre in vm.allgenres">
+			<a href="" ng-click="loadArtists(genre._id)">
+				<div class="item-image">
+					<img class="img-responsive" ng-src="{{ genre.ThumbNail }}" >
+					<div class="image-overlay">
+						<div class="text">View all "{{genre.Name}}" artists</div>
+					</div>
+					<span class="item-name"> {{genre.Name}}</span>
+				</div>				
+			</a>
+		</li>
+	</ul>
+
+	<div id="popupVid" style="display: none;">   
+		<iframe id="player" width="500" height="315" ng-src="{{PlayerUrl}}" frameborder="0" allowfullscreen></iframe>   
+		<div>
+			<a id="pauseButton" href="javascript:;" onClick="toggleVideo('hide');"><img width="50" height="50" src="app-content/images/Pause.png"> </a>
+			<a id="playButton" href="javascript:;" onClick="toggleVideo('show');"><img width="50" height="50" src="app-content/images/Play.png"></a>
+		</div>
+	</div>
+</div>
+

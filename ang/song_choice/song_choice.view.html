@@ -1,0 +1,86 @@
+<div ng-controller="SongChoiceController" ng-app id="song_choice">
+    <form name="form" ng-submit="vm.submit()" role="form">
+        <div class="col-md-6">
+            <div class="form-group" ng-class="{ 'has-error': form.Url.$dirty && form.Url.$error.required }">
+                <label for="Url">Url</label>
+                <input type="text" name="Url" id="Url" class="form-control" ng-model="vm.Url" required  onchange="getUrl()" />
+                <span ng-show="form.Url.$dirty && form.Url.$error.required" class="help-block">Url is required</span>
+            </div>
+
+            <div ng-show="vm.Url">
+                <div class="form-group">
+                    <label for="album">Genre</label>
+                    <select ng-model="vm.selectedGenre" class="form-control"
+                         ng-options="item._id as item.Name for item in vm.allgenres">
+                         <option value="">Select genre</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="album">Album</label>
+                    <input type="text" name="text" id="album" class="form-control" ng-model="vm.album" placeholder="Enter Album name here" required/>
+                    <span ng-show="form.album.$dirty && form.album.$error.required" class="help-block">Album is required</span>
+                </div>
+                <div class="form-group">
+                    <label for="albumimg">Album image</label>
+                    <input type="text" name="text" id="albumimg" class="form-control" ng-model="vm.albumimg"  placeholder="Enter Album image url here" required />
+                    <span ng-show="form.albumimg.$dirty && form.albumimg.$error.required" class="help-block">Album Image is required</span>
+                </div>
+
+                <div class="form-group">            
+                    <label for="artist">Artist</label>
+                    <input type="text" name="text" id="artist" class="form-control" ng-model="vm.artist" required />
+                    <span ng-show="form.artist.$dirty && form.artist.$error.required" class="help-block">Artist is required</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="artistimg">Artist image</label>
+                    <input type="text" name="text" id="artistimg" class="form-control" ng-model="vm.artistimg" placeholder="Enter Artist image url here" required />
+                    <span ng-show="form.artistimg.$dirty && form.artistimg.$error.required" class="help-block">Artist Image is required</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="text" id="title" class="form-control" ng-model="vm.title"  required />
+                    <span ng-show="form.title.$dirty && form.title.$error.required" class="help-block">Title is required</span>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" onclick="passArtistAndTitle()" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" ng-show="vm.Url">    
+            <img class="img-responsive add-song-image" ng-src={{GetThumbnail(vm.Url)}}  width="220px" height="180px">         
+        </div>
+        
+        
+    </form>
+</div>
+   <script>
+
+        function passArtistAndTitle(){
+            angular.element(document.getElementById('song_choice')).scope().ArtistAndTitle(document.getElementById("artist").value, document.getElementById("title").value);
+        }
+
+
+        function getUrl(){
+            
+            var url=document.getElementById("Url").value;
+            var video_id = url.split('v=')[1];
+            console.log(video_id);          
+            var url = 'https://www.youtube.com/watch?v=' + video_id;
+            $.getJSON('https://noembed.com/embed',
+                {format: 'json', url: url}, function (data) {  
+
+            var regex = /([\+\-\:\-\*\/])/;
+            var res = data.title.split(regex);
+            var artist = res[0].trim();
+            var title = res[2].replace(/ *\([^)]*\) */g, "");
+            title = title.trim();
+
+            document.getElementById("artist").value = artist;
+            document.getElementById("title").value = title;
+            });
+        }
+
+    </script> 

@@ -1,0 +1,26 @@
+<!-- <div id="main-navbar" ng-controller="NavController"> -->
+<nav id="navbar" class="navbar navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../ang/#!/genre"><img class="logo" src="../ang/app-content/images/logo.png" alt="Beat Space logo"></a>
+    </div>
+    <ul class="nav navbar-nav">
+    <li class="main_hover"><a href="../ang/#!/genre"><img class="icons" ng-src="../ang/app-content/images/home.png" alt="Home"> Home</a></li>
+      <li class="main_hover"><a href="../ang/#!/search"><img class="icons" ng-src="../ang/app-content/images/search.png" alt="search"> Search</a></li>
+      <li class="main_hover"><a href="../ang/#!/song_choice"><img class="icons" ng-src="../ang/app-content/images/discover.png" alt="discover">Add song</a></li>
+      <li class="main_hover"><a href="../ang/#!/playlist"><img class="icons" ng-src="../ang/app-content/images/my_space.png" alt="my-space"> My space</a></li>         
+    </ul>
+    <div class="pull-right" id="navbar-login"><a href="../ang/#!/login"><img class="login main_hover" src="../ang/app-content/images/login.png" alt="Login"></a></div>
+    <div class="pull-right" id="navbar-logout"><a href="../ang/#!/login"><!-- <img class="login main_hover" src="../ang/app-content/images/login.png" alt="Login"> --><i class="fa fa-sign-out logout" aria-hidden="true"></i></a></div>
+    <div class="pull-right" id="hello-user">Hello, {{ User.currentUser.username }}</div>
+    <!--/.nav-collapse -->
+  </div>
+  <!--/.container-fluid -->
+</nav>
+<!-- </div> -->
